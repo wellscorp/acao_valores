@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * StatusOportunidade
+ *
+ * @ORM\Table(name="STATUS_OPORTUNIDADE")
+ * @ORM\Entity
+ */
+class StatusOportunidade
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_STATUS_OPORTUNIDADE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idStatusOportunidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESRCICAO", type="string", length=80, nullable=false)
+     */
+    private $desrcicao;
+
+
+}
+

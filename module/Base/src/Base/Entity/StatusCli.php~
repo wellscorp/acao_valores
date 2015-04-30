@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * StatusCli
+ *
+ * @ORM\Table(name="STATUS_CLI")
+ * @ORM\Entity
+ */
+class StatusCli
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_STATUS_CLI", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idStatusCli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=30, nullable=false)
+     */
+    private $descricao;
+
+
+}
+

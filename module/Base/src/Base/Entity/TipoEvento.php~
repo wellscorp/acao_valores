@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TipoEvento
+ *
+ * @ORM\Table(name="TIPO_EVENTO")
+ * @ORM\Entity
+ */
+class TipoEvento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_TIPO_EVENTO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTipoEvento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=40, nullable=false)
+     */
+    private $descricao;
+
+
+}
+

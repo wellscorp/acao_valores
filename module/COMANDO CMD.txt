@@ -1,0 +1,1 @@
+php doctrine-module orm:convert-mapping --from-database annotation --namespace="Base\\Entity\\" module/Base/src/

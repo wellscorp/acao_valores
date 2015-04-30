@@ -1,0 +1,47 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comentario
+ *
+ * @ORM\Table(name="COMENTARIO")
+ * @ORM\Entity
+ */
+class Comentario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_COMENTARIO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idComentario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=300, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_PEDIDO", type="integer", nullable=false)
+     */
+    private $idPedido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO", type="string", length=40, nullable=false)
+     */
+    private $usuario;
+
+
+}
+

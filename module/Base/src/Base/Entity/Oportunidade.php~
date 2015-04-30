@@ -1,0 +1,151 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Oportunidade
+ *
+ * @ORM\Table(name="OPORTUNIDADE", indexes={@ORM\Index(name="IDX_45347B9CC8BE64F0", columns={"ID_VENDEDOR"}), @ORM\Index(name="IDX_45347B9CD8684D3C", columns={"ID_CLIENTE"}), @ORM\Index(name="IDX_45347B9C7E63E7EA", columns={"ID_SOLUCAO"}), @ORM\Index(name="IDX_45347B9C15EC6E45", columns={"ID_FORNECEDOR"}), @ORM\Index(name="IDX_45347B9CCC0A8CA1", columns={"ID_AGENTE"}), @ORM\Index(name="IDX_45347B9C2EB55C64", columns={"ID_GESTOR"}), @ORM\Index(name="IDX_45347B9CE116644", columns={"ID_USUARIO"}), @ORM\Index(name="IDX_45347B9CD1C88956", columns={"ID_STATUS_OPORTUNIDADE"}), @ORM\Index(name="IDX_45347B9CA230F074", columns={"ID_AREA"})})
+ * @ORM\Entity
+ */
+class Oportunidade
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_OPORTUNIDADE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idOportunidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_ABERTURA", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtAbertura;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACAO", type="string", length=300, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTIMATIVA", type="decimal", precision=10, scale=2, nullable=true)
+     */
+    private $estimativa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CRICAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $hrCricao;
+
+    /**
+     * @var \Base\Entity\Vendedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Vendedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_VENDEDOR", referencedColumnName="ID_VENDEDOR")
+     * })
+     */
+    private $idVendedor;
+
+    /**
+     * @var \Base\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLIENTE", referencedColumnName="ID_CLIENTE")
+     * })
+     */
+    private $idCliente;
+
+    /**
+     * @var \Base\Entity\Solucao
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Solucao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOLUCAO", referencedColumnName="ID_SOLUCAO")
+     * })
+     */
+    private $idSolucao;
+
+    /**
+     * @var \Base\Entity\Fornecedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Fornecedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FORNECEDOR", referencedColumnName="ID_FORNECEDOR")
+     * })
+     */
+    private $idFornecedor;
+
+    /**
+     * @var \Base\Entity\Agente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Agente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AGENTE", referencedColumnName="ID_AGENTE")
+     * })
+     */
+    private $idAgente;
+
+    /**
+     * @var \Base\Entity\Gestor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Gestor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_GESTOR", referencedColumnName="ID_GESTOR")
+     * })
+     */
+    private $idGestor;
+
+    /**
+     * @var \Base\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_USUARIO", referencedColumnName="ID_USUARIO")
+     * })
+     */
+    private $idUsuario;
+
+    /**
+     * @var \Base\Entity\StatusOportunidade
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\StatusOportunidade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_STATUS_OPORTUNIDADE", referencedColumnName="ID_STATUS_OPORTUNIDADE")
+     * })
+     */
+    private $idStatusOportunidade;
+
+    /**
+     * @var \Base\Entity\Area
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Area")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AREA", referencedColumnName="ID_AREA")
+     * })
+     */
+    private $idArea;
+
+
+}
+

@@ -1,0 +1,203 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Equipamento
+ *
+ * @ORM\Table(name="EQUIPAMENTO", indexes={@ORM\Index(name="IDX_3D9154DAD8684D3C", columns={"ID_CLIENTE"}), @ORM\Index(name="IDX_3D9154DA7E63E7EA", columns={"ID_SOLUCAO"}), @ORM\Index(name="IDX_3D9154DA15EC6E45", columns={"ID_FORNECEDOR"})})
+ * @ORM\Entity
+ */
+class Equipamento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_EQUIPAMENTO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEquipamento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=80, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="VERSAO", type="string", length=15, nullable=true)
+     */
+    private $versao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SERIE", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $serie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IDENTIFICACAO", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $identificacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOTA_FISCAL", type="decimal", precision=30, scale=0, nullable=true)
+     */
+    private $notaFiscal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_INI_CONTATO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtIniContato;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LOGIN_1", type="string", length=30, nullable=true)
+     */
+    private $login1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SENHA_1", type="string", length=150, nullable=true)
+     */
+    private $senha1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LOGIN_2", type="string", length=30, nullable=true)
+     */
+    private $login2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SENHA_2", type="string", length=150, nullable=true)
+     */
+    private $senha2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RAMAL", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $ramal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="WAN_IP", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $wanIp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="WAN_MASK", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $wanMask;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="WAN_GETWAY", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $wanGetway;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="WAN_DNS_1", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $wanDns1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="WAN_DNS_2", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $wanDns2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LAN_IP", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $lanIp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LAN_MASK", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $lanMask;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LAN_GETWAY", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $lanGetway;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_ACESSO", type="decimal", precision=18, scale=0, nullable=true)
+     */
+    private $ipAcesso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACAO", type="string", length=300, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var \Base\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLIENTE", referencedColumnName="ID_CLIENTE")
+     * })
+     */
+    private $idCliente;
+
+    /**
+     * @var \Base\Entity\Solucao
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Solucao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOLUCAO", referencedColumnName="ID_SOLUCAO")
+     * })
+     */
+    private $idSolucao;
+
+    /**
+     * @var \Base\Entity\Fornecedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Fornecedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FORNECEDOR", referencedColumnName="ID_FORNECEDOR")
+     * })
+     */
+    private $idFornecedor;
+
+
+}
+

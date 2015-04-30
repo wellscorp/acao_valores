@@ -1,0 +1,101 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Chamado
+ *
+ * @ORM\Table(name="CHAMADO", indexes={@ORM\Index(name="IDX_447F875D8684D3C", columns={"ID_CLIENTE"}), @ORM\Index(name="IDX_447F87525769D00", columns={"ID_STATUS_CHAMADO"}), @ORM\Index(name="IDX_447F875E116644", columns={"ID_USUARIO"}), @ORM\Index(name="IDX_447F8753D8095D8", columns={"ID_RESPOSTA"})})
+ * @ORM\Entity
+ */
+class Chamado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CHAMADO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idChamado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TITULO", type="string", length=40, nullable=false)
+     */
+    private $titulo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=60, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PROTOCOLO", type="string", length=10, nullable=true)
+     */
+    private $protocolo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CRICAO", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrCricao;
+
+    /**
+     * @var \Base\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLIENTE", referencedColumnName="ID_CLIENTE")
+     * })
+     */
+    private $idCliente;
+
+    /**
+     * @var \Base\Entity\StatusChamado
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\StatusChamado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_STATUS_CHAMADO", referencedColumnName="ID_STATUS_CHAMADO")
+     * })
+     */
+    private $idStatusChamado;
+
+    /**
+     * @var \Base\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_USUARIO", referencedColumnName="ID_USUARIO")
+     * })
+     */
+    private $idUsuario;
+
+    /**
+     * @var \Base\Entity\Chamado
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Chamado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_RESPOSTA", referencedColumnName="ID_CHAMADO")
+     * })
+     */
+    private $idResposta;
+
+
+}
+

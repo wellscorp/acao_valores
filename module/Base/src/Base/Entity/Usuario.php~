@@ -1,0 +1,142 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="USUARIO", indexes={@ORM\Index(name="IDX_1D204E47C8BE64F0", columns={"ID_VENDEDOR"}), @ORM\Index(name="IDX_1D204E47D8684D3C", columns={"ID_CLIENTE"}), @ORM\Index(name="IDX_1D204E47CC0A8CA1", columns={"ID_AGENTE"}), @ORM\Index(name="IDX_1D204E472EB55C64", columns={"ID_GESTOR"}), @ORM\Index(name="IDX_1D204E4720B65A19", columns={"ID_TECNICO"}), @ORM\Index(name="IDX_1D204E47192B8AD", columns={"ID_PERMISSAO"})})
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_USUARIO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=80, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SENHA", type="string", length=180, nullable=false)
+     */
+    private $senha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CRIACAO", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_LOGIN", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_LOGIN", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_LOGOUT", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtLogout;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_LOGOUT", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrLogout;
+
+    /**
+     * @var \Base\Entity\Vendedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Vendedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_VENDEDOR", referencedColumnName="ID_VENDEDOR")
+     * })
+     */
+    private $idVendedor;
+
+    /**
+     * @var \Base\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLIENTE", referencedColumnName="ID_CLIENTE")
+     * })
+     */
+    private $idCliente;
+
+    /**
+     * @var \Base\Entity\Agente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Agente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AGENTE", referencedColumnName="ID_AGENTE")
+     * })
+     */
+    private $idAgente;
+
+    /**
+     * @var \Base\Entity\Gestor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Gestor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_GESTOR", referencedColumnName="ID_GESTOR")
+     * })
+     */
+    private $idGestor;
+
+    /**
+     * @var \Base\Entity\Tecnico
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Tecnico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TECNICO", referencedColumnName="ID_TECNICO")
+     * })
+     */
+    private $idTecnico;
+
+    /**
+     * @var \Base\Entity\Permissao
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Permissao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_PERMISSAO", referencedColumnName="ID_PERMISSAO")
+     * })
+     */
+    private $idPermissao;
+
+
+}
+

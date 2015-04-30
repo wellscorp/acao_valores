@@ -1,0 +1,57 @@
+
+<?php
+
+    $uri= $this->uri();
+    $uriParams= "";
+    $pagina= "pagina";
+    if(count($uri['uri'] > 2 )){
+        foreach($uri['uri'] as $key => $value){
+            if($key != $pagina){
+                $uriParams.= "&$key=" . $value;
+            }
+        }
+    }
+?>
+
+
+<div class="paginator paginator-centered">
+    <?php if(isset($this->previous)): ?>
+        <a class="btn" href="?<?php echo $pagina?>=<?php echo $this->previous?><?php echo $uriParams?>">Anterior </a>
+    <?php endif; ?>
+
+    <?php foreach($this->pagesInRange as $item): ?>
+        <?php if($this->current == $item ): ?>
+            <a class="btn disable" href="javascript:void(0)"> <?php echo $item ?></a>
+        <?php else: ?>
+            <a class="btn" href="?<?php echo $pagina?>=<?php echo $item?><?php echo $uriParams?>"> <?php echo $item ?></a>
+        <?php endif;?>
+    <?php endforeach; ?>
+
+    <?php if(isset($this->next)): ?>
+        <a class="btn" href="?<?php echo $pagina?>=<?php echo $this->next?><?php echo $uriParams?>">Proximo </a>
+    <?php endif; ?>
+</div>
+?>
+
+
+
+<?php /* ?>
+<div class="paginator paginator-centered">
+    <?php if(isset($this->previous)): ?>
+        <a class="btn" href="?pagina=<?php echo $this->previous ?>">Anterior </a>
+    <?php endif; ?>
+
+    <?php foreach($this->pagesInRange as $item): ?>
+        <?php if($this->current == $item ): ?>
+            <a class="btn disable" href="javascript:void(0)"> <?php echo $item ?></a>
+    <?php else: ?>
+        <a class="btn" href="?pagina=<?php echo $item ?>"> <?php echo $item ?></a>
+        <?php endif;?>
+    <?php endforeach; ?>
+
+    <?php if(isset($this->next)): ?>
+        <a class="btn" href="?pagina=<?php echo $this->next ?>">Proximo </a>
+    <?php endif; ?>
+</div>
+
+ <?php */ ?>

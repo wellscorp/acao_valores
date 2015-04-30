@@ -1,0 +1,47 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsrUsuario
+ *
+ * @ORM\Table(name="USR_USUARIO")
+ * @ORM\Entity
+ */
+class UsrUsuario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USR_ID_USUARIO", type="decimal", precision=18, scale=0, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $usrIdUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USR_EMAIL_USUARIO", type="string", length=50, nullable=false)
+     */
+    private $usrEmailUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USR_NOME_USUARIO", type="string", length=50, nullable=false)
+     */
+    private $usrNomeUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USR_SENHA", type="string", length=50, nullable=false)
+     */
+    private $usrSenha;
+
+
+}
+

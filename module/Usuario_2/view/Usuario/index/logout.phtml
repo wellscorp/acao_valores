@@ -1,0 +1,104 @@
+<a class="btn btn-info" href="<?php echo $this->url('Base', array('controller' => 'Base', 'action' => 'home')); ?>"  data-target="#myModal" data-toggle="tooltip" data-placement="right" title="Voltar para index."> Voltar</a>
+
+
+
+        <h2> Até breve </h2>
+<?php
+/**
+ *
+ * @var $form \Zend\Form\Form
+ */
+
+;
+?>
+</div>
+    </div>
+
+<style type="text/css">
+    input, textarea, label{
+        display: block;
+    }
+
+    .formulario{
+        position: relative;
+        display: block;
+        -webkit-align-content: center;
+        -webkit-align-items: center;
+        align-self: center;
+        width: 100%;
+        margin-top: 10px;
+        max-width: 500px;
+    }
+</style>
+
+<script>
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    function mascaraCep(e){
+
+        var tecla=(window.event)?event.keyCode:e.which;
+        if((tecla>47 && tecla<58)) {
+            var v= cep.value;
+            v= v.replace(/D/gi,"");             //Remove tudo o que não é dígito
+
+            if(v.length == 2)
+                v= v+".";
+            if(v.length == 6)
+                v= v+"-";
+            v= $("input[name=cep]").val(v);
+            return true;
+        }
+        else{
+            if (tecla==8 || tecla==0) return true;
+            else  return false;
+        }
+    }
+
+    function mascaraCpf(e){
+
+        var tecla=(window.event)?event.keyCode:e.which;
+        if((tecla>47 && tecla<58)) {
+            var v= cpf.value;
+            v= v.replace(/D/gi,"");             //Remove tudo o que não é dígito
+
+            if(v.length == 3)
+                v= v+".";
+            if(v.length == 7)
+                v= v+".";
+            if(v.length == 11)
+                v= v+"-";
+            v= $("input[name=cpf]").val(v);
+            return true;
+        }
+        else{
+            if (tecla==8 || tecla==0) return true;
+            else  return false;
+        }
+    }
+
+    function mascaraRg(e){
+
+        var tecla=(window.event)?event.keyCode:e.which;
+        if((tecla>47 && tecla<58)) {
+            var v= rg.value;
+            v= v.replace(/D/gi,"");             //Remove tudo o que não é dígito
+
+            if(v.length == 2)
+                v= v+".";
+            if(v.length == 6)
+                v= v+".";
+            if(v.length == 10)
+                v= v+"-";
+            v= $("input[name=rg]").val(v);
+            return true;
+        }
+        else{
+            if (tecla==8 || tecla==0) return true;
+            else  return false;
+        }
+    }
+
+</script>

@@ -1,0 +1,101 @@
+
+
+<div align="left">
+    <a href="#">Inicio </a> > <a href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'index')); ?>">Usuarios </a>  > <u>Mudar senha</u>
+</div>
+<br>
+
+
+<div class="tabela col-md-12">
+    <div class="tabela-dentro" align="left">
+        <h3 class="texto" style="font-size: 18px"> Mudar Senha </h3>
+        <?php
+        if($this->success)
+            echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+        if($this->error)
+            echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+        $this->formElementErrors()
+            ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+            ->setMessageCloseString ('</div>');
+
+
+        ?>
+
+        <form class="" method="post" action="">
+            <div class="col-md-4">
+                <div class="form-group">
+
+
+                <div class="form-group">
+                    <label > Senha Atual</label>
+                    <input type="password" class="form-control" name="senha_atual" placeholder="">
+                </div>
+                    <div class="form-group">
+                        <label > Senha Nova</label>
+                        <input type="password" class="form-control" name="senha" placeholder="">
+                    </div>
+                <div class="form-group">
+                    <label > Repita a Senha</label>
+                    <input type="password" class="form-control" name="senha_2" placeholder="">
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+            </div>
+
+            <div class="col-md-4">
+            </div>
+
+            <div class="col-md-12">
+
+                <input type="submit" class="btn btn-success" value="Salvar">
+                <br><br>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<style type="text/css">
+    input, textarea, label{
+        display: block;
+    }
+
+    .formulario{
+        position: relative;
+        display: block;
+        -webkit-align-content: center;
+        -webkit-align-items: center;
+        align-self: center;
+        width: 100%;
+        margin-top: 10px;
+        max-width: 500px;
+    }
+</style>
+
+<script>
+
+    $("#clientes").hide();
+
+    function teste(){
+        var x = document.getElementById("cliente").selected;
+        console.log(x);
+        if(x){
+            $("#clientes").show();
+            $("#outros").hide();
+        }else{
+            $("#clientes").hide();
+            $("#outros").show();
+        }
+    }
+
+    $("#gestor").click(function(){
+        console.log("click");
+    });
+
+
+
+</script>

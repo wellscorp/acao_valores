@@ -1,0 +1,339 @@
+
+
+<div class=" col-xs-12">
+    <img src="<?php echo $this->basePath() . '/img/smart_client_logo.png' ?>" width="250px">
+    <?php
+    if($this->success)
+        echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+    if($this->error)
+        echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+    ?>
+    <div class="tabela" align="center">
+        <div class="tabela-dentro" align="center">
+            <?php
+            $this->formElementErrors()
+                ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+                ->setMessageCloseString ('</div>')
+                ->render($form);
+
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            echo $this->formCollection($form);
+            echo $this->form()->closeTag($form);
+            ?>
+            <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Treinamento</a>
+            <br>
+            <a href="<?php echo $this->url('Outros', array('controller' => 'Outros', 'action' => 'inserirNovaEmpresa')); ?>" >Cadastre-se</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Videos de Treinamento</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group" align="left">
+                    <?php if($this->data){ ?>
+                    <?php foreach($this->data as $entity){ ?>
+                            <a  href="http://www.clientesmart.net.br/sis_telecom/<?php echo $entity->getLink(); ?>" class="list-group-item active" download="<?php echo $entity->getTitulo(); ?>"> <?php echo $entity->getTitulo(); ?> </a>
+                    <?php }} ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-12"  style="margin-top: 150px">
+    <div class="row db-padding-btm db-attached">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="db-wrapper">
+                <div class="db-pricing-eleven db-bk-color-one">
+                    <div class="price">
+                        <sup>R$</sup>149
+                    </div>
+                    <div class="type">
+                        PLANO 1
+                    </div>
+                    <ul>
+                        <li><i class="glyphicon glyphicon-print"></i>+10 Usuários </li>
+                        <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                    </ul>
+                    <div class="pricing-footer">
+
+                        <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="db-wrapper">
+                <div class="db-pricing-eleven db-bk-color-two popular">
+                    <div class="price">
+                        <sup>R$</sup>199
+                    </div>
+                    <div class="type">
+                       PLANO 2
+                    </div>
+                    <ul>
+                        <li><i class="glyphicon glyphicon-print"></i>+20 Usuários </li>
+                        <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                    </ul>
+                    <div class="pricing-footer">
+
+                        <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="db-wrapper">
+                <div class="db-pricing-eleven db-bk-color-three">
+                    <div class="price">
+                        <sup>$</sup>249
+                    </div>
+                    <div class="type">
+                        PLANO 3
+                    </div>
+                    <ul>
+
+                        <li><i class="glyphicon glyphicon-print"></i>+40 Usuários </li>
+                        <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                    </ul>
+                    <div class="pricing-footer">
+
+                        <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="db-wrapper">
+                <div class="db-pricing-eleven db-bk-color-two popular">
+                    <div class="price">
+                        <sup>R$</sup>299
+                    </div>
+                    <div class="type">
+                        PLANO 4
+                    </div>
+                    <ul>
+
+                        <li><i class="glyphicon glyphicon-print"></i>+40 Usuários </li>
+                        <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                    </ul>
+                    <div class="pricing-footer">
+
+                        <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-md-12">
+<div class="row db-padding-btm db-attached">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+            <div class="db-pricing-eleven db-bk-color-one">
+                <div class="price">
+                    <sup>R$</sup>299
+                </div>
+                <div class="type">
+                    PLANO 5
+                </div>
+                <ul>
+                    <li><i class="glyphicon glyphicon-print"></i>+80 Usuários </li>
+                    <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                </ul>
+                <div class="pricing-footer">
+
+                    <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+            <div class="db-pricing-eleven db-bk-color-two popular">
+                <div class="price">
+                    <sup>R$</sup>349
+                </div>
+                <div class="type">
+                    PLANO 6
+                </div>
+                <ul>
+                    <li><i class="glyphicon glyphicon-print"></i>+160 Usuários </li>
+                    <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                </ul>
+                <div class="pricing-footer">
+
+                    <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+            <div class="db-pricing-eleven db-bk-color-three">
+                <div class="price">
+                    <sup>R$</sup>399
+                </div>
+                <div class="type">
+                    PLANO 7
+                </div>
+                <ul>
+
+                    <li><i class="glyphicon glyphicon-print"></i>+320 Usuários </li>
+                    <li><i class="glyphicon glyphicon-time"></i>Implantação Gratuita </li>
+                </ul>
+                <div class="pricing-footer">
+
+                    <a href="#" class="btn db-button-color-square btn-lg">ADQUIRA</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<div class="col-md-12">
+    <h2>Funcionalidades</h2>
+</div>
+
+<div class="col-xs-12">
+
+    <div class="col-md-3 tabela tab-2">
+        <h4>Identificação visual</h4>
+        <p class="texto">Você pode personalizar seu software, inserindo sua marca no envio de e-mails automáticos e nos diversos tipos de relatórios e telas do software.</p>
+    </div>
+    <div class="col-md-3  tabela tab-2">
+        <h4>Envio de e-mail automático</h4>
+        <p class="texto">O software envia e-mails automaticamente para seus usuários. Informações importantes como abertura e resposta de chamados, e informações sobre oportunidades de negócios são enviadas instantaneamente para os</p>
+    </div>
+    <div class="col-md-3  tabela tab-2">
+        <h4>Oportunidades de negócios:</h4>
+        <p class="texto">Todas as oportunidades de negócios poderão ser alimentadas com informações sobre eventos, arquivos anexos, status da negociação, vendedor responsável... E de forma gerencial, serão exibidos indicadores como valores, metas e rankings.</p>
+    </div>
+    <div class="col-md-3  tabela tab-2">
+        <h4>Controle de ocorrências:</h4>
+        <p class="texto">Todos os usuários poderão registrar ocorrências através do software SmartClient. O software registrará todas as solicitações e respostas, inclusive emitindo protocolos de atendimento de forma automática.</p>
+    </div>
+</div>
+
+
+<div class="col-xs-12">
+    <div class="col-md-3  tabela tab-2">
+        <h4>Controle de ocorrências:</h4>
+        <p class="texto">Todos os usuários poderão registrar ocorrências através do software SmartClient. O software registrará todas as solicitações e respostas, inclusive emitindo protocolos de atendimento de forma automática.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Relatórios:</h4>
+        <p  class="texto">Tome decisões inteligentes e concretas com base em números. Os relatórios online do SmartClient te auxiliam a tomar as melhores decisões, independente de local e hora do dia. O software SmartClient permite a exportação de diversos gráficos e relatórios em formato PDF e CSV.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Perfis de usuários:</h4>
+        <p  class="texto">Com perfis de usuários, você pode liberar acesso ao software a seus funcionários e clientes, e limitar quais informações ficarão visíveis. São diversos perfis pré-elaborados para facilitar seu controle.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Acesse de qualquer lugar:</h4>
+        <p  class="texto">Não perca tempo. O SmartClient é 100% online. Acesse o software SmartClient de qualquer lugar e tenha as informações da sua empresa em qualquer dia e horário da semana.</p>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="col-md-3 tabela tab-2">
+        <h4>Backup de informações:</h4>
+        <p  class="texto">O software SmartClient possui uma rotina automática de backup de informações. Além disso, cada cliente pode salvar e exportar sua base de dados a qualquer momento através do próprio software.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Cadastro de clientes:</h4>
+        <p  class="texto">Todas as informações administrativas, técnicas e de contado de cada cliente poderão ser lançadas no software. O software permite ao usuário, a consulta dos dados de novos clientes, através de informações obtidas a partir do CNPJ.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Cadastro de equipamentos:</h4>
+        <p  class="texto">O software permite o cadastro de equipamentos pertencentes aos clientes, como centrais telefônicas, e dispositivos de rede. Poderão ser lançados diversos tipos de informações para cada equipamento cadastrado.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Localização geográfica:</h4>
+        <p  class="texto">Todos os clientes cadastrados no software podem ter a sua localização exata exibida em mapas detalhados, de acordo com as informações de endereço dos mesmos.</p>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="col-md-3 tabela tab-2">
+        <h4>Pré-cadastro de informações:</h4>
+        <p  class="texto">Informações recorrentes como o cadastro de fornecedores, soluções, status de clientes, status de oportunidades de negócio, tipos de anexos e tipos de eventos podem ser pré-cadastradas, facilitando a utilização pelos</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Perfeito para seu bolso:</h4>
+        <p  class="texto">Nossos planos tem um custo mensal de acordo com a necessidade de sua empresa. Sem taxa de implantação, sem contratos de longo prazo e sem taxas escondidas.</p>
+    </div>
+    <div class="col-md-3 tabela tab-2">
+        <h4>Aplicativos mobile:</h4>
+        <p  class="texto">Os principais recursos do Software SmartClient também podem ser acessados através do aplicativo desenvolvido para smartphones. Inclusive, com a função de alerta para novos eventos e chamados. (em breve).</p>
+    </div>
+    <div class="col-md-3 ">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+    input, textarea, label{
+        display: block;
+    }
+
+    .formulario{
+        position: relative;
+        display: block;
+        -webkit-align-content: center;
+        -webkit-align-items: center;
+        align-self: center;
+        width: 100%;
+        margin-top: 10px;
+        max-width: 500px;
+    }
+    .tabela{
+        max-width: 400px;
+        max-height: 250px;
+        border-radius: 8px;
+    }
+    .tabela-dentro{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .alert{
+        max-width: 400px;
+    }
+    .texto{
+        margin-top: 30px;
+    }
+    .tab-2{
+        height: 300px;
+    }
+</style>
+
+<script>
+
+
+</script>

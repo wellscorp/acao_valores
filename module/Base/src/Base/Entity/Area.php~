@@ -1,0 +1,40 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Area
+ *
+ * @ORM\Table(name="AREA")
+ * @ORM\Entity
+ */
+class Area
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_AREA", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESRCICAO", type="string", length=80, nullable=false)
+     */
+    private $desrcicao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=30, nullable=false)
+     */
+    private $nome;
+
+
+}
+

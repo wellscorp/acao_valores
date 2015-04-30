@@ -1,0 +1,74 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OprOperacoes
+ *
+ * @ORM\Table(name="OPR_OPERACOES", indexes={@ORM\Index(name="IDX_2ADFDADBE6ED5C59", columns={"OPR_ID_ACAO"}), @ORM\Index(name="IDX_2ADFDADB1981EEF2", columns={"OPR_ID_USUARIO"})})
+ * @ORM\Entity
+ */
+class OprOperacoes
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OPR_ID_OPERACAO", type="decimal", precision=18, scale=0, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $oprIdOperacao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="OPR_QTD", type="integer", nullable=false)
+     */
+    private $oprQtd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="OPR_DATA_OPERACAO", type="date", nullable=false)
+     */
+    private $oprDataOperacao;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="OPR_VALOR_COMPRA", type="float", precision=53, scale=0, nullable=false)
+     */
+    private $oprValorCompra;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="OPR_VALOR_VENDA", type="float", precision=53, scale=0, nullable=true)
+     */
+    private $oprValorVenda;
+
+    /**
+     * @var \Base\Entity\AcoAcao
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\AcoAcao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="OPR_ID_ACAO", referencedColumnName="ACO_ID_ACAO")
+     * })
+     */
+    private $oprAcao;
+
+    /**
+     * @var \Base\Entity\UsrUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\UsrUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="OPR_ID_USUARIO", referencedColumnName="USR_ID_USUARIO")
+     * })
+     */
+    private $oprUsuario;
+
+
+}
+

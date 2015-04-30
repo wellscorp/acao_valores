@@ -1,0 +1,97 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Municipio
+ *
+ * @ORM\Table(name="MUNICIPIO")
+ * @ORM\Entity
+ */
+class Municipio extends AbstractEntity
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_MUNICIPIO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=50, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=2, nullable=false)
+     */
+    private $estado;
+
+
+
+    /**
+     * Get idMunicipio
+     *
+     * @return integer
+     */
+    public function getIdMunicipio()
+    {
+        return $this->idMunicipio;
+    }
+
+    /**
+     * Set descricao
+     *
+     * @param string $descricao
+     *
+     * @return Municipio
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+    
+        return $this;
+    }
+
+    /**
+     * Get descricao
+     *
+     * @return string
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param string $estado
+     *
+     * @return Municipio
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return string
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+}

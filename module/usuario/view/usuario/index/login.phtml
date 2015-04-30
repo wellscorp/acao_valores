@@ -1,0 +1,32 @@
+<a class="btn btn-info" href="<?php echo $this->url('grupo', array('controller' => 'grupo', 'action' => 'index')); ?>"> Voltar</a>
+
+
+
+<?php
+/**
+ *
+ * @var $form \Zend\Form\Form
+ */
+
+    if($this->success)
+        echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+     if($this->error)
+         echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+    $this->formElementErrors()
+        ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+        ->setMessageCloseString ('</div>');
+?>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <span class="glyphicon glyphicon-list-alt"></span>
+        <h2>Calendar</h2>
+        <div class="box">
+            <input type="text" placeholder="username">
+            <input type="password" placeholder="password">
+            <button class="btn btn-default full-width"><span class="glyphicon glyphicon-ok"></span></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Agente
+ *
+ * @ORM\Table(name="AGENTE")
+ * @ORM\Entity
+ */
+class Agente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_AGENTE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAgente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=80, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=60, nullable=true)
+     */
+    private $email;
+
+
+}
+

@@ -1,0 +1,131 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Empresa
+ *
+ * @ORM\Table(name="EMPRESA")
+ * @ORM\Entity
+ */
+class Empresa
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_EMPRESA", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RAZAO_SOCIAL", type="string", length=80, nullable=true)
+     */
+    private $razaoSocial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CNPJ", type="decimal", precision=14, scale=0, nullable=true)
+     */
+    private $cnpj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="INSCRICAO_ESTADUAL", type="decimal", precision=12, scale=0, nullable=true)
+     */
+    private $inscricaoEstadual;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="INSCRICAO_MUNICIPAL", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $inscricaoMunicipal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME_FANTASIA", type="string", length=80, nullable=true)
+     */
+    private $nomeFantasia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CEP", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $cep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=50, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CIDADE", type="string", length=50, nullable=true)
+     */
+    private $cidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ENDERECO", type="string", length=80, nullable=true)
+     */
+    private $endereco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="BAIRRO", type="string", length=60, nullable=true)
+     */
+    private $bairro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TELEFONE", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $telefone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=60, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CRIACAO", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IMAGEM_LINK", type="string", length=120, nullable=true)
+     */
+    private $imagemLink;
+
+
+}
+

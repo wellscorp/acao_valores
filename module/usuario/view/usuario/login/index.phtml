@@ -1,0 +1,39 @@
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <?php
+            /**
+             * @var $form \Zend\Form\Form
+             */
+            if($this->success)
+                echo '<div class="alert alert-success "> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+            if($this->error)
+                echo '<div class="alert alert-warning ">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+            $this->formElementErrors()
+                ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+                ->setMessageCloseString ('</div>');
+            ?>
+            <div class="form-login">
+                <form method="post" id="form">
+                    <h4>Godllywood</h4>
+                    <input type="text" id="email" name="email" class="form-control input-sm chat-input" placeholder="E-mail" />
+                    </br>
+                    <input type="password" id="senha" name="senha" class="form-control input-sm chat-input" placeholder="Senha" />
+                    </br>
+                    <div class="wrapper">
+                        <span class="group-btn">
+                            <a href="#" class="btn btn-primary btn-md" id="btn-submit">Entrar <i class="fa fa-sign-in"></i></a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

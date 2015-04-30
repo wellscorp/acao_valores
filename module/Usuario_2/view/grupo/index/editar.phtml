@@ -1,0 +1,43 @@
+
+<a class="btn btn-info" href="<?php echo $this->url('imovel', array('controller' => 'imovel', 'action' => 'index')); ?>"> Voltar</a>
+<h2> Editar Usuario </h2>
+
+<?php
+
+/**
+ *
+ * @var $form \Zend\Form\Form
+ */
+//$form= new \imovel\Form\ImovelForm();
+$form= $this->form;
+
+if($this->success)
+    echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+if($this->error)
+    echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+$this->formElementErrors()
+    ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+    ->setMessageCloseString ('</div>')
+    ->render ($form);
+
+$form->setAttribute('action', $this->url('imovel', array('controller' => 'imovel', 'action' => 'editar', 'id' => $this->id)));
+
+$form->prepare();
+
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+
+// echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+//echo var_dump($form);
+
+?>
+
+
+<style type="text/css">
+    input, textarea, label{
+        display: block;
+    }
+</style>

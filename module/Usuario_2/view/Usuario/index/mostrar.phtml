@@ -1,0 +1,53 @@
+
+
+<?php
+    $usuario = $this->identity()[0];
+?>
+
+
+<div class="tabela col-md-12">
+    <div class="tabela-dentro" align="left">
+        <h2 class="texto" style="font-size: 18px"> Minhas informações </h2>
+        <div style="position: absolute; margin-left: 350px; margin-top: -35px" align="right">
+
+            <a data-toggle="tooltip" data-placement="top" title="Editar"  href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'editarMeu', 'id' => $this->identity()[0]->getIdUsuario() )); ?>" class="btn btn-info" > <i class="glyphicon glyphicon-pencil"> </i> </a>
+            <a data-toggle="tooltip" data-placement="top" title="Editar"  href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'mudar', 'id' =>$this->identity()[0]->getIdUsuario() )); ?>" class="btn btn-warning" >  Mudar senha </a>
+        </div>
+        
+        <h4>Id: <small><?php    echo $usuario->getIdUsuario(); ?> </small> </h4>
+        <h4>Nome:  <small><?php    echo $usuario->getNome(); ?> </small></h4>
+        <h4>E-mail:  <small><?php    echo $usuario->getEmail(); ?> </small></h4>
+        <h4>Tipo:  <small><?php    echo $usuario->getTipo(); ?> </small></h4>
+
+
+    </div>
+</div>
+
+
+<br>
+
+<style>
+    p{
+        margin-left: 20px;
+    }
+    .alert{
+        margin-top: 10px;;
+    }
+    strong{
+        font-size: 20px;
+    }
+    .titulo{
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    console.log("<?php echo $this->data['nome']; ?>");
+</script>
+
+
+
+
+
+
+

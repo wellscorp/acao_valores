@@ -1,0 +1,71 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Evento
+ *
+ * @ORM\Table(name="EVENTO", indexes={@ORM\Index(name="IDX_B77ECC83F689A8B3", columns={"ID_TIPO_EVENTO"})})
+ * @ORM\Entity
+ */
+class Evento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_EVENTO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEvento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_INI", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtIni;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_INI", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrIni;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CRIACAO", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACAO", type="string", length=300, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var \Base\Entity\TipoEvento
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\TipoEvento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TIPO_EVENTO", referencedColumnName="ID_TIPO_EVENTO")
+     * })
+     */
+    private $idTipoEvento;
+
+
+}
+

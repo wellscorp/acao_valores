@@ -1,0 +1,151 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cliente
+ *
+ * @ORM\Table(name="CLIENTE", indexes={@ORM\Index(name="IDX_CB59653FBF9E3E3", columns={"ID_PAIS"}), @ORM\Index(name="IDX_CB59653FC8BE64F0", columns={"ID_VENDEDOR"})})
+ * @ORM\Entity
+ */
+class Cliente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CLIENTE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCliente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RAZAO_SOCIAL", type="string", length=80, nullable=false)
+     */
+    private $razaoSocial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CNPJ", type="decimal", precision=14, scale=0, nullable=false)
+     */
+    private $cnpj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="INSCRICAO_ESTADUAL", type="decimal", precision=12, scale=0, nullable=true)
+     */
+    private $inscricaoEstadual;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="INSCRICAO_MUNICIPAL", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $inscricaoMunicipal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME_FANTASIA", type="string", length=80, nullable=true)
+     */
+    private $nomeFantasia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CEP", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $cep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=50, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CIDADE", type="string", length=50, nullable=true)
+     */
+    private $cidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ENDERECO", type="string", length=80, nullable=true)
+     */
+    private $endereco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="BAIRRO", type="string", length=60, nullable=true)
+     */
+    private $bairro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_1", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_2", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_3", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACAO", type="string", length=300, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=60, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var \Base\Entity\Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Pais")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_PAIS", referencedColumnName="ID_PAIS")
+     * })
+     */
+    private $idPais;
+
+    /**
+     * @var \Base\Entity\Vendedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Vendedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_VENDEDOR", referencedColumnName="ID_VENDEDOR")
+     * })
+     */
+    private $idVendedor;
+
+
+}
+

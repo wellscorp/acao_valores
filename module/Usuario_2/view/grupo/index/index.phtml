@@ -1,0 +1,75 @@
+
+
+<div class="col-md-1">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Novo</button>
+</div>
+
+<div class="col-md-11" align="right" style="position: absolute;">
+<?php
+if($this->success)
+    echo '<div align="left" class="alert alert-success alerta" style="margin-top: 0px"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+if($this->error)
+    echo '<div align="left" class="alert alert-warning alerta" style="margin-top: 0px">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+?>
+</div>
+<table class="table tabela table-striped table-hover table-condensed">
+    <thead>
+        <tr>
+            <th>Nome </th>
+            <th width="100px">Recursos </th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    /**
+     * @var $entity grupo\Entity\Grupo
+     */
+    ?>
+    <?php if ($this->data): ?>
+        <?php foreach($this->data as $entity){ ?>
+        <tr>
+            <td> <a href="#"><?php echo $entity->getNome(); ?> </a></td>
+            <td>
+                <a class="btn-sm " href="<?php echo $this->url('grupo', array('controller' => 'grupo', 'action' => 'editar', 'id' => $entity->getIdGrupo() )); ?>"> <i class="glyphicon glyphicon-pencil"> </i> </a>
+                <a class="btn-sm" href="<?php echo $this->url('grupo', array('controller' => 'grupo', 'action' => 'excluir', 'id' => $entity->getIdGrupo() )); ?>"> <i class="glyphicon glyphicon-trash"> </i> </a>
+            </td>
+        </tr>
+        <?php } ?>
+    <?php else: ?>
+        <p> Nenhum registro encontrado! </p>
+    <?php endif; ?>
+    </tbody>
+</table>
+
+<!-- MODAL DE CADASTRO -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Cadastrar Grupo</h4>
+            </div>
+
+            <div class="formulario">
+                <form id="form" method="post">
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                    </div>
+                    <div align="right">
+                        <a class="btn btn-success btn-md btn-right" data-loading-text="Carregando..." id="btn-submit">Salvar</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#li-eventos, #li-sisters, #li-entradas, #li-despesas ").removeClass("active");
+    $("#li-grupos").addClass("active");
+</script>

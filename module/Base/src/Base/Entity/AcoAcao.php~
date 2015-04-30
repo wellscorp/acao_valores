@@ -1,0 +1,68 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AcoAcao
+ *
+ * @ORM\Table(name="ACO_ACAO")
+ * @ORM\Entity
+ */
+class AcoAcao
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ACO_ID_ACAO", type="decimal", precision=18, scale=0, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $acoIdAcao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ACO_CODIGO_ACAO", type="string", length=50, nullable=false)
+     */
+    private $acoCodigoAcao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ACO_NOME_ACAO", type="string", length=50, nullable=false)
+     */
+    private $acoNomeAcao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ACO_RAMO_ACAO", type="string", length=50, nullable=false)
+     */
+    private $acoRamoAcao;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ACO_VALOR_MAXIMO", type="float", precision=53, scale=0, nullable=false)
+     */
+    private $acoValorMaximo;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ACO_VALOR_MINIMO", type="float", precision=53, scale=0, nullable=false)
+     */
+    private $acoValorMinimo;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ACO_VALOR_ATUAL", type="float", precision=53, scale=0, nullable=false)
+     */
+    private $acoValorAtual;
+
+
+}
+

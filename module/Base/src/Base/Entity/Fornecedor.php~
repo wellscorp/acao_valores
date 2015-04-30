@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Fornecedor
+ *
+ * @ORM\Table(name="FORNECEDOR")
+ * @ORM\Entity
+ */
+class Fornecedor
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_FORNECEDOR", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idFornecedor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=80, nullable=false)
+     */
+    private $nome;
+
+
+}
+

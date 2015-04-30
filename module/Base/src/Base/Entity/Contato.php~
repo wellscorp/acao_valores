@@ -1,0 +1,78 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Contato
+ *
+ * @ORM\Table(name="CONTATO", indexes={@ORM\Index(name="IDX_FCC1555814F48F3B", columns={"ID_CARGO"})})
+ * @ORM\Entity
+ */
+class Contato
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CONTATO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idContato;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=60, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=60, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_1", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_2", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TEL_3", type="decimal", precision=13, scale=0, nullable=true)
+     */
+    private $tel3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACAO", type="string", length=300, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var \Base\Entity\Cargo
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cargo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CARGO", referencedColumnName="ID_CARGO")
+     * })
+     */
+    private $idCargo;
+
+
+}
+

@@ -1,0 +1,131 @@
+
+<?php echo $this->headScript()
+    ->prependFile($this->basePath() . '/js/jquery.tablesorter.js'); ?>
+<div align="left">
+    Você esta em:   <u>Usuarios</u>
+</div>
+
+<div align="" class="tabela">
+
+<div class="tabela-dentro">
+
+    <div align="left" class="col-md-6">
+        <?php if($_SESSION['identity']->getIdPermissao()->getInUs() == 1 || $_SESSION['identity']->getTipo() == 'admin' || $_SESSION['identity']->getTipo() == 'master'){ ?>
+        <a class="btn btn-success" href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'inserir')); ?>"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Cadastrar</a>
+        <?php } ?>
+
+    </div>
+    <br> <br>
+    <form action="" method="post">
+        <div class="col-md-12">
+            <div class="col-md-5">
+                <input type="text" name="filtro" class="form-control" placeholder="Procurar por...">
+            </div>
+            <div class="col-md-2">
+                <select class="form-control select-filtro" name="status">
+                    <option value="0"> -- Selecione -- </option>
+                    <option value="gestor" id="gestor"> Gestor </option>
+                    <option value="vendedor" id="vendedor"> Vendedor </option>
+                    <option value="tecnico" id="tecnico"> Técnico </option>
+                    <option value="agente" id="agente"> Agente </option>
+                    <option value="cliente" id="cliente"> Cliente </option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" name="buscar" class="btn btn-default" value="Filtrar">
+                <input type="submit" name="limpar" class="btn btn-default" value="Limpar">
+            </div>
+        </div><!-- /.col-lg-6 -->
+    </form>
+
+    <br><br><br><br>
+
+
+    <?php
+    if($this->success)
+        echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+    if($this->error)
+        echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+    ?>
+
+    <table id="tablesorter-imasters" class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Nome </th>
+                <th>E-mail </th>
+                <th>Tipo </th>
+                <th>Recursos </th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        /**
+         * @var $entity Pessoa\Entity\Pessoa
+         */
+
+        ?>
+
+        <?php if ($this->data): ?>
+            <?php foreach($this->data as $entity){ ?>
+            <tr class='clickableRow' href="#">
+                <td> <?php echo $entity->getNome(); ?> </td>
+                <td> <?php echo $entity->getEmail(); ?> </td>
+                <td> <?php echo $entity->getTipo(); ?> </td>
+                <td align="right">
+                    <?php if($_SESSION['identity']->getIdPermissao()->getEdUs() == 1 || $_SESSION['identity']->getTipo() == 'admin' || $_SESSION['identity']->getTipo() == 'master'){ ?>
+                    <a class="btn btn-warning btn-xs" href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'editar', 'id' => $entity->getIdUsuario() )); ?>"> <i class="glyphicon glyphicon-pencil"> </i> </a>
+                    <?php } ?>
+                    <?php if($_SESSION['identity']->getIdPermissao()->getExUs() == 1 || $_SESSION['identity']->getTipo() == 'admin' || $_SESSION['identity']->getTipo() == 'master'){ ?>
+                    <a class="btn btn-danger btn-xs" href="<?php echo $this->url('Usuario', array('controller' => 'Usuario', 'action' => 'excluir', 'id' => $entity->getIdUsuario() )); ?>"> <i class="glyphicon glyphicon-trash"> </i> </a>
+                    <?php } ?>
+                </td>
+            </tr>
+            <?php } ?>
+        <?php else: ?>
+            <p> Nenhum registro encontrado! </p>
+        <?php endif; ?>
+        </tbody>
+    </table>
+    <?php //echo $this->url($this->route, array('page' => $page)); die; ?>
+    <?php echo $this->paginationControl($this->data, 'Sliding', 'partials/paginator.phtml', array('route' => 'Usuario/paginator'));?>
+    <?php //echo $this->paginationControl($this->data, 'Sliding', 'partials/control.phtml');?>
+</div>
+</div>
+
+<style>
+    table#example {
+        border-collapse: collapse;
+    }
+    #example tr {
+        background-color: #eee;
+        border-top: 1px solid #fff;
+    }
+    #example tr:hover {
+        background-color: #ccc;
+    }
+    #example th {
+        background-color: #fff;
+    }
+    #example th, #example td {
+        padding: 3px 5px;
+    }
+    #example td:hover {
+        cursor: pointer;
+    }
+
+    .select-filtro{
+        background-image: linear-gradient(to bottom, rgb(249, 246, 255), rgba(249, 247, 243, 0.81), rgba(227, 229, 232, 0.82));
+    }
+
+
+</style>
+
+<script>
+    jQuery(document).ready(function($) {
+        $(".clickableRow").click(function() {
+            window.document.location = $(this).attr("href");
+        });
+    });
+</script>
+

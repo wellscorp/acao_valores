@@ -1,0 +1,77 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Anexo
+ *
+ * @ORM\Table(name="ANEXO", indexes={@ORM\Index(name="IDX_3A2A6D9CD8684D3C", columns={"ID_CLIENTE"}), @ORM\Index(name="IDX_3A2A6D9C1776D076", columns={"ID_CHAMADO"}), @ORM\Index(name="IDX_3A2A6D9CC9343D37", columns={"ID_TIPO_ANEXO"})})
+ * @ORM\Entity
+ */
+class Anexo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_ANEXO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAnexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LINK", type="string", length=80, nullable=false)
+     */
+    private $link;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DT_CRIACAO", type="decimal", precision=8, scale=0, nullable=true)
+     */
+    private $dtCriacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HR_CIRACAO", type="decimal", precision=6, scale=0, nullable=true)
+     */
+    private $hrCiracao;
+
+    /**
+     * @var \Base\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CLIENTE", referencedColumnName="ID_CLIENTE")
+     * })
+     */
+    private $idCliente;
+
+    /**
+     * @var \Base\Entity\Chamado
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Chamado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_CHAMADO", referencedColumnName="ID_CHAMADO")
+     * })
+     */
+    private $idChamado;
+
+    /**
+     * @var \Base\Entity\TipoAnexo
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\TipoAnexo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TIPO_ANEXO", referencedColumnName="ID_TIPO_ANEXO")
+     * })
+     */
+    private $idTipoAnexo;
+
+
+}
+

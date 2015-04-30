@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pais
+ *
+ * @ORM\Table(name="PAIS")
+ * @ORM\Entity
+ */
+class Pais
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_PAIS", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idPais;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=50, nullable=true)
+     */
+    private $descricao;
+
+
+}
+

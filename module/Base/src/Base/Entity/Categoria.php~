@@ -1,0 +1,40 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categoria
+ *
+ * @ORM\Table(name="categoria")
+ * @ORM\Entity
+ */
+class Categoria
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CATEGORIA", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCategoria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=50, nullable=true)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NIVEL", type="integer", nullable=true)
+     */
+    private $nivel;
+
+
+}
+

@@ -1,0 +1,33 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tecnico
+ *
+ * @ORM\Table(name="TECNICO")
+ * @ORM\Entity
+ */
+class Tecnico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_TECNICO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTecnico;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=30, nullable=false)
+     */
+    private $nome;
+
+
+}
+

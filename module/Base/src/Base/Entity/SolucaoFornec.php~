@@ -1,0 +1,50 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SolucaoFornec
+ *
+ * @ORM\Table(name="SOLUCAO_FORNEC", indexes={@ORM\Index(name="IDX_CF91509015EC6E45", columns={"ID_FORNECEDOR"})})
+ * @ORM\Entity
+ */
+class SolucaoFornec
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_SOLUCAO_FORNEC", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSolucaoFornec;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOME", type="string", length=30, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRICAO", type="string", length=300, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var \Base\Entity\Fornecedor
+     *
+     * @ORM\ManyToOne(targetEntity="Base\Entity\Fornecedor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FORNECEDOR", referencedColumnName="ID_FORNECEDOR")
+     * })
+     */
+    private $idFornecedor;
+
+
+}
+

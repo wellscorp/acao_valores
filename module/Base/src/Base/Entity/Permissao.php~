@@ -1,0 +1,54 @@
+<?php
+
+namespace Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Permissao
+ *
+ * @ORM\Table(name="PERMISSAO")
+ * @ORM\Entity
+ */
+class Permissao
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_PERMISSAO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idPermissao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IN_CLI", type="string", length=1, nullable=true)
+     */
+    private $inCli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ED_CLI", type="string", length=1, nullable=true)
+     */
+    private $edCli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EX_CLI", type="string", length=1, nullable=true)
+     */
+    private $exCli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="VI_CLI", type="string", length=1, nullable=true)
+     */
+    private $viCli;
+
+
+}
+
