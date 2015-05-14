@@ -9,6 +9,12 @@
 
 namespace Base;
 
+use Base\Form\AcaoForm;
+use Base\Form\UsuarioForm;
+use Base\Service\acaoService;
+use Base\Service\notificacaoService;
+use Base\Service\operacoesService;
+use Base\Service\usuarioService;
 use Zend\Mvc\I18n\Translator;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
@@ -51,4 +57,33 @@ class Module
             ),
         );
     }
+
+
+
+    public  function getServiceConfig(){
+
+        return array(
+            'factories' => array(
+                'Base\form\AcaoForm' => function($em){
+                    return new AcaoForm($em->get('Doctrine\ORM\EntityManager'));
+                },
+                'Base\Service\acaoService' => function($em){
+                    return new acaoService($em->get('Doctrine\ORM\EntityManager'));
+                },
+                'Base\Form\UsuarioForm' => function($em){
+                    return new UsuarioForm($em->get('Doctrine\ORM\EntityManager'));
+                },
+                'Base\Service\usuarioService' => function($em){
+                    return new usuarioService($em->get('Doctrine\ORM\EntityManager'));
+                },
+                'Base\Service\operacoesService' => function($em){
+                    return new operacoesService($em->get('Doctrine\ORM\EntityManager'));
+                },
+                'Base\Service\notificacaoService' => function($em){
+                    return new notificacaoService($em->get('Doctrine\ORM\EntityManager'));
+                }
+            )
+        );
+    }
+
 }

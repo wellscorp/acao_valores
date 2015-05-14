@@ -1,0 +1,61 @@
+
+
+
+<?php
+/**
+ *
+ * @var $form \Zend\Form\Form
+ */
+$form= $this->form;
+
+
+if($this->success)
+    echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+if($this->error)
+    echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+$this->formElementErrors()
+    ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+    ->setMessageCloseString ('</div>');
+    //->render ($form);
+
+//$form->setAttribute('action', $this->url('Base', array('controller' => 'Base', 'action' => 'usuario')));
+
+//$form->prepare();
+
+
+/*
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+*/
+?>
+
+<h1>Notificações</h1>
+
+<form method="post">
+    <div class="emprarelhar">
+        <label>Ação</label>
+        <select name="NTF_ACAO">
+            <option value="0"> --Selecione-- </option>
+            <?php if($this->acao){ ?>
+                <?php foreach($this->acao as $acao){ ?>
+                    <option value="<?php if($acao->getAcoIdAcao()) echo $acao->getAcoIdAcao(); ?>"> <?php if($acao->getAcoNomeAcao()) echo $acao->getAcoNomeAcao(); ?> </option>
+
+                <?php } } ?>
+        </select>
+
+        <label>Preço</label>
+        <input type="text" name="NTF_VALOR_ACAO">
+    </div>
+
+    <br>
+    <input type="button" value="Limpar">
+    <input type="submit" value="Cadastrar">
+</form>
+
+<style type="text/css">
+    .emprarelhar input, textarea, label{
+        display: block;
+    }
+</style>

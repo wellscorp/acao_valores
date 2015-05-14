@@ -1,0 +1,40 @@
+<h3>Hitorico de Operações</h3>
+
+<h5>Saldo: <small><?php if($this->qtdTotal){ echo $this->qtdTotal; } ?></small></h5>
+<h5>Valor: <small>000</small></h5>
+<h5>Rentabilidade: <small>000</small></h5>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>codigo</td>
+            <td>Tipo</td>
+            <td>quantidade</td>
+            <td>preço de compra</td>
+            <td>data compra</td>
+        </tr>
+    </thead>
+    <tbody>
+
+    <?php
+    /**
+     * @entity Base\Entity\OprOperacoes
+     */
+    ?>
+    <?php if($this->data){ ?>
+        <?php foreach($this->data as $entity){ ?>
+            <tr>
+                <td> <?php echo $entity->getOprAcao()->getAcoCodigoAcao(); ?> </td>
+                <td> <?php //echo $entity->getOprTipo(); ?> </td>
+                <td> <?php echo $entity->getOprQtd(); ?> </td>
+                <td> <?php echo $entity->getOprValorCompra(); ?> </td>
+                <td> <?php echo date_format($entity->getOprDataOperacao(),'d/m/Y'); ?> </td>
+            </tr>
+    <?php }}?>
+
+
+
+
+    </tbody>
+</table>

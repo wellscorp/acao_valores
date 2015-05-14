@@ -26,6 +26,7 @@ abstract class AbstractService{
 		}
 
 		$this->em->persist($entity);
+        //var_dump($entity);die;
 		$this->em->flush();
 
 		return $entity;

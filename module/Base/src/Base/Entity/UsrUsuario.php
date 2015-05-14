@@ -21,7 +21,7 @@ class UsrUsuario extends AbstractEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $usrIdUsuario;
+    private $id;
 
     /**
      * @var string
@@ -53,7 +53,7 @@ class UsrUsuario extends AbstractEntity
      */
     public function getUsrIdUsuario()
     {
-        return $this->usrIdUsuario;
+        return $this->id;
     }
 
     /**

@@ -21,7 +21,7 @@ class OprOperacoes extends AbstractEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $oprIdOperacao;
+    private $id;
 
     /**
      * @var integer
@@ -33,16 +33,23 @@ class OprOperacoes extends AbstractEntity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="OPR_DATA_OPERACAO", type="date", nullable=false)
+     * @ORM\Column(name="OPR_DATA_OPERACAO", type="string", precision=10, nullable=false)
      */
     private $oprDataOperacao;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="OPR_VALOR_COMPRA", type="float", precision=53, scale=0, nullable=false)
+     * @ORM\Column(name="OPR_VALOR", type="float", precision=53, scale=0, nullable=false)
      */
-    private $oprValorCompra;
+    private $oprValor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OPR_TIPO_OPERACAO", type="string", precision=100, nullable=false)
+     */
+    private $oprTipoOperacao;
 
     /**
      * @var float
@@ -50,6 +57,13 @@ class OprOperacoes extends AbstractEntity
      * @ORM\Column(name="OPR_VALOR_VENDA", type="float", precision=53, scale=0, nullable=true)
      */
     private $oprValorVenda;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="OPR_CORRETAGEM", type="float", precision=53, scale=0, nullable=true)
+     */
+    private $oprCorretagem;
 
     /**
      * @var \Base\Entity\AcoAcao
@@ -80,7 +94,7 @@ class OprOperacoes extends AbstractEntity
      */
     public function getOprIdOperacao()
     {
-        return $this->oprIdOperacao;
+        return $this->id;
     }
 
     /**
@@ -132,15 +146,15 @@ class OprOperacoes extends AbstractEntity
     }
 
     /**
-     * Set oprValorCompra
+     * Set oprValor
      *
-     * @param float $oprValorCompra
+     * @param float $oprValor
      *
      * @return OprOperacoes
      */
-    public function setOprValorCompra($oprValorCompra)
+    public function setOprValor($oprValor)
     {
-        $this->oprValorCompra = $oprValorCompra;
+        $this->oprValor = $oprValor;
     
         return $this;
     }
@@ -150,9 +164,9 @@ class OprOperacoes extends AbstractEntity
      *
      * @return float
      */
-    public function getOprValorCompra()
+    public function getOprValor()
     {
-        return $this->oprValorCompra;
+        return $this->oprValor;
     }
 
     /**
@@ -226,4 +240,39 @@ class OprOperacoes extends AbstractEntity
     {
         return $this->oprUsuario;
     }
+
+    /**
+     * @return string
+     */
+    public function getOprTipoOperacao()
+    {
+        return $this->oprTipoOperacao;
+    }
+
+    /**
+     * @param string $oprTipoOperacao
+     */
+    public function setOprTipoOperacao($oprTipoOperacao)
+    {
+        $this->oprTipoOperacao = $oprTipoOperacao;
+    }
+
+    /**
+     * @return float
+     */
+    public function getOprCorretagem()
+    {
+        return $this->oprCorretagem;
+    }
+
+    /**
+     * @param float $oprCorretagem
+     */
+    public function setOprCorretagem($oprCorretagem)
+    {
+        $this->oprCorretagem = $oprCorretagem;
+    }
+
+
+
 }

@@ -21,7 +21,7 @@ class NtfNotificacao extends AbstractEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $ntfIdNotificacao;
+    private $id;
 
     /**
      * @var float
@@ -59,7 +59,7 @@ class NtfNotificacao extends AbstractEntity
      */
     public function getNtfIdNotificacao()
     {
-        return $this->ntfIdNotificacao;
+        return $this->id;
     }
 
     /**

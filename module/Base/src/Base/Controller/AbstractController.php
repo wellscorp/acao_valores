@@ -82,7 +82,7 @@ abstract class AbstractController extends AbstractActionController{
 		if($request->isPost()){
 			$form->setData($request->getPost());
 
-			if($form->isValid()){
+			//if($form->isValid()){
 				$service= $this->getServiceLocator()->get($this->service);
 				// TRANSFORMA EM UMA ARRAY
 				if($service->save($request->getPost()->toArray())){
@@ -94,8 +94,8 @@ abstract class AbstractController extends AbstractActionController{
 
 				// RETORNA PARA A MESMA PAGINA DE CADASTRO
 				return $this->redirect()
-                    ->toRoute($this->route, array('controller' => $this->controller, 'action' => 'inserir')); //
-			}
+                    ->toRoute($this->route, array('controller' => $this->controller)); //
+			//}
 		}
 
 		if($this->flashMessenger()->hasSuccessMessages()){

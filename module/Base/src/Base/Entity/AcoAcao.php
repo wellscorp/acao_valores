@@ -21,7 +21,7 @@ class AcoAcao extends AbstractEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $acoIdAcao;
+    private $id;
 
     /**
      * @var string
@@ -74,7 +74,7 @@ class AcoAcao extends AbstractEntity
      */
     public function getAcoIdAcao()
     {
-        return $this->acoIdAcao;
+        return $this->id;
     }
 
     /**

@@ -1,4 +1,4 @@
-<h1>Ações</h1>
+
 
 
 <?php
@@ -16,20 +16,51 @@ if($this->error)
 
 $this->formElementErrors()
     ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
-    ->setMessageCloseString ('</div>')
-    ->render ($form);
+    ->setMessageCloseString ('</div>');
+    //->render ($form);
 
-$form->setAttribute('action', $this->url('Base', array('controller' => 'Base', 'action' => 'inserir')));
+//$form->setAttribute('action', $this->url('Base', array('controller' => 'Base', 'action' => 'acoes')));
 
-$form->prepare();
+//$form->prepare();
 
 
-
+/*
 echo $this->form()->openTag($form);
 echo $this->formCollection($form);
 echo $this->form()->closeTag();
+*/
 ?>
 
+<h3>Ações</h3>
+<form method="post" >
+    <label>Tipo</label>
+    <select name="OPR_TIPO_OPERACAO">
+        <option value="compra"> Compra</option>
+        <option value="venda"> Venda</option>
+    </select>
+
+    <label>Data</label>
+    <input type="date" name="OPR_DATA_OPERACAO">
+
+    <label>Ação</label>
+    <select name="OPR_ACAO">
+        <option value="0"> --Selecione-- </option>
+        <?php if($this->acao){ ?>
+        <?php foreach($this->acao as $acao){ ?>
+            <option value="<?php if($acao->getAcoIdAcao()) echo $acao->getAcoIdAcao(); ?>"> <?php if($acao->getAcoNomeAcao()) echo $acao->getAcoNomeAcao(); ?> </option>
+
+        <?php } } ?>
+    </select>
+    <label>Quantidade</label>
+    <input type="text" name="OPR_QTD">
+    <label>Preço</label>
+    <input type="text" name="OPR_VALOR">
+    <label>Corretagem</label>
+    <input type="text" name="OPR_CORRETAGEM">
+
+    <br>
+    <input type="submit" value="Cadastrar">
+</form>
 
 <style type="text/css">
     input, textarea, label{

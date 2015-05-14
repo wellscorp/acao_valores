@@ -1,0 +1,54 @@
+
+
+
+<?php
+/**
+ *
+ * @var $form \Zend\Form\Form
+ */
+//$form= $this->form;
+
+
+if($this->success)
+    echo '<div class="alert alert-success"> '. $this->success[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+if($this->error)
+    echo '<div class="alert alert-warning">'. $this->error[0] .' <button type="button" class="close" data-dismiss="alert"> x </button> </div>';
+
+/*
+$this->formElementErrors()
+    ->setMessageOpenFormat ('<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert"> x </button>')
+    ->setMessageCloseString ('</div>')
+    ->render ($form);
+
+$form->setAttribute('action', $this->url('Base', array('controller' => 'Base', 'action' => 'usuario')));
+
+$form->prepare();
+
+
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+*/
+?>
+
+
+<h3>Usuarios</h3>
+<form method="post" >
+    <label>Nome</label>
+    <input type="text" name="USR_NOME_USUARIO">
+    <label>E-mail</label>
+    <input type="text" name="USR_EMAIL_USUARIO">
+    <label>Senha</label>
+    <input type="password" name="USR_SENHA">
+
+    <br>
+    <input type="submit" value="Cadastrar">
+</form>
+
+
+<style type="text/css">
+    input, textarea, label{
+        display: block;
+    }
+</style>
